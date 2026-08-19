@@ -46,25 +46,13 @@
       <!-- Tasks -->
       <div class="tasks-container" id="tasksContainer">
         <!-- Example Task -->
-        <div class="task">
-          <div class="task-content">
-            <input type="radio" class="task-radio" />
 
-            <span class="task-title"> مطالعه درس ساختمان داده </span>
-          </div>
-
-          <div class="task-actions">
-            <button class="edit-button">✎</button>
-
-            <button class="delete-button">🗑</button>
-          </div>
-        </div>
-
+        {% for task in tasks %} {% if task.complete %}
         <div class="task completed">
           <div class="task-content">
             <input type="radio" class="task-radio" checked />
 
-            <span class="task-title"> ورزش صبحگاهی </span>
+            <span class="task-title"> {{task.title}}</span>
           </div>
 
           <div class="task-actions">
@@ -73,12 +61,12 @@
             <button class="delete-button">🗑</button>
           </div>
         </div>
-
+        {% else %}
         <div class="task">
           <div class="task-content">
             <input type="radio" class="task-radio" />
 
-            <span class="task-title"> انجام پروژه دانشگاه </span>
+            <span class="task-title"> {{task.title}}</span>
           </div>
 
           <div class="task-actions">
@@ -87,6 +75,7 @@
             <button class="delete-button">🗑</button>
           </div>
         </div>
+        {% endif %} {% endfor %}
       </div>
     </main>
 
@@ -156,9 +145,22 @@
         const deleteButton = task.querySelector(".delete-button");
         const editButton = task.querySelector(".edit-button");
 
-        // Complete task
-        radio.addEventListener("click", function () {
-          task.classList.toggle("completed", radio.checked);
+        // مقدار اولیه Radio
+        radio.dataset.checked = radio.checked ? "true" : "false";
+
+        // Complete / Uncomplete task
+        radio.addEventListener("click", function (event) {
+          if (radio.dataset.checked === "true") {
+            radio.checked = false;
+            radio.dataset.checked = "false";
+
+            task.classList.remove("completed");
+          } else {
+            radio.checked = true;
+            radio.dataset.checked = "true";
+
+            task.classList.add("completed");
+          }
         });
 
         // Delete task
