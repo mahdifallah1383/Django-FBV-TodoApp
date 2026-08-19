@@ -1,12 +1,11 @@
 from django.db import models
-
-# from accounts.models import Profile
+from accounts.models import Profile
 
 # Create your models here.
 
 
 class Task(models.Model):
-    # profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=255, null=False)
     description = models.TextField(null=True)
     complete = models.BooleanField(default=False)
@@ -18,3 +17,4 @@ class Task(models.Model):
 
     class META:
         ordering = ["created_date"]
+        order_with_respect_to = "profile"
