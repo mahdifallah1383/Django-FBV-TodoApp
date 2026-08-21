@@ -1,13 +1,11 @@
-from django.views.generic.base import TemplateView
+from django.views.generic import ListView
 from .models import Task
 
 # Create your views here.
 
 
-class HomePageView(TemplateView):
+class HomePageView(ListView):
+    model = Task
     template_name = "index.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["tasks"] = Task.objects.all()
-        return context
+    context_object_name = "tasks"
+    ordering = "-created_date"
