@@ -33,15 +33,22 @@
       <p class="subtitle">کارهای روزانه خود را مدیریت کنید</p>
 
       <!-- Add Task -->
-      <div class="add-task">
+      <form
+        class="add-task"
+        method="post"
+        action="{% url 'todo:create-task' %}"
+      >
+        {% csrf_token %}
         <input
           type="text"
-          id="taskInput"
+          name="title"
           placeholder="کار جدید را وارد کنید..."
+          autocomplete="off"
+          required
         />
 
-        <button id="addButton" class="add-button">+</button>
-      </div>
+        <button type="submit" class="add-button">+</button>
+      </form>
 
       <!-- Tasks -->
       <div class="tasks-container" id="tasksContainer">

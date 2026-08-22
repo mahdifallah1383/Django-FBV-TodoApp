@@ -47,14 +47,12 @@ function addTask() {
   addTaskEvents(task);
 }
 
-// Add button
-addButton.addEventListener("click", addTask);
+const taskForm = document.getElementById("taskForm");
 
-// Enter key
-taskInput.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    addTask();
-  }
+taskForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  addTask();
 });
 
 // Task events
