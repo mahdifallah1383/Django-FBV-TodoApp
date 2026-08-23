@@ -1,0 +1,110 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ویرایش کار</title>
+
+    <link rel="stylesheet" href="{% static 'css/update_task.css' %}" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="user-profile">
+        <img
+          src="https://i.pravatar.cc/100?img=12"
+          alt="تصویر کاربر"
+          class="user-avatar"
+        />
+
+        <div class="user-info">
+          <span class="user-name">مهدی احمدی</span>
+          <span class="user-role">کاربر</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="edit-container">
+      <div class="edit-card">
+        <h1>ویرایش کار</h1>
+
+        <p class="subtitle">اطلاعات کار خود را ویرایش کنید</p>
+
+        <form method="post" action="">
+          {% csrf_token %}
+          <!-- Task Title -->
+          <div class="form-group">
+            <label for="taskTitle"> عنوان کار </label>
+
+            <input type="text" name="title" value="{{task.title}}" required />
+          </div>
+
+          <div class="form-group">
+            <label for="taskTitle"> اطلاعات</label>
+
+            <textarea name="description" rows="4" cols="70">
+            {{task.description}}
+            </textarea>
+          </div>
+
+          <!-- Task Status -->
+          <div class="form-group">
+            <label> وضعیت کار </label>
+
+            <div class="status-container">
+              {% if task.complete %}
+              <input type="checkbox" id="taskStatus" name="complete" checked />
+              {% else %}
+              <input type="checkbox" id="taskStatus" name="complete" />
+              {% endif %}
+
+              <label for="taskStatus"> انجام شده </label>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="form-actions">
+            <a href="{% url 'todo:task-list' %}" class="cancel-button">
+              انصراف
+            </a>
+
+            <button type="submit" class="save-button">ذخیره تغییرات</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    {% comment %}
+    <script>
+      const editForm = document.getElementById("editForm");
+
+      editForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const title = document.getElementById("taskTitle").value.trim();
+
+        const status = document.getElementById("taskStatus").checked;
+
+        if (title === "") {
+          return;
+        }
+
+        /*
+         * در اینجا بعداً می‌توانیم
+         * اطلاعات را به Backend ارسال کنیم.
+         */
+
+        console.log("Task:", title);
+        console.log("Completed:", status);
+
+        // بازگشت به صفحه اصلی
+        window.location.href = "index.html";
+      });
+    </script>
+    {% endcomment %}
+  </body>
+</html>

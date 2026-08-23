@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Tahoma, Arial, sans-serif;
+
+  background: #f5f7fb;
+
+  color: #1f2937;
+
+  min-height: 100vh;
+}
+
+/* =========================
+   Header
+========================= */
+
+.header {
+  width: 100%;
+
+  padding: 20px 40px;
+
+  display: flex;
+
+  justify-content: flex-start;
+}
+
+.user-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  background: white;
+
+  padding: 8px 14px 8px 8px;
+
+  border-radius: 14px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.user-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.user-name {
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+.user-role {
+  font-size: 11px;
+
+  color: #8a8f98;
+}
+
+/* =========================
+   Main
+========================= */
+
+.edit-container {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin: 70px auto;
+
+  padding: 0 20px;
+}
+
+/* =========================
+   Card
+========================= */
+
+.edit-card {
+  background: white;
+
+  padding: 35px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+}
+
+.edit-card h1 {
+  text-align: center;
+
+  font-size: 27px;
+
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+
+  color: #8a8f98;
+
+  font-size: 13px;
+
+  margin-bottom: 35px;
+}
+
+/* =========================
+   Form
+========================= */
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group > label {
+  display: block;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  margin-bottom: 9px;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+
+  height: 50px;
+
+  border: 1px solid #e2e5ea;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  padding: 0 15px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.form-group input[type="text"]:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================
+   Status
+========================= */
+
+.status-container {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background: #f8fafc;
+
+  border-radius: 10px;
+
+  padding: 14px;
+}
+
+.status-container input {
+  width: 18px;
+
+  height: 18px;
+
+  cursor: pointer;
+
+  accent-color: #2563eb;
+}
+
+.status-container label {
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.form-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 35px;
+}
+
+.form-actions a,
+.form-actions button {
+  height: 48px;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-decoration: none;
+}
+
+.cancel-button {
+  flex: 1;
+
+  background: #f1f5f9;
+
+  color: #475569;
+
+  border: none;
+
+  transition: 0.2s;
+}
+
+.cancel-button:hover {
+  background: #e2e8f0;
+}
+
+.save-button {
+  flex: 2;
+
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+
+  transition: 0.2s;
+}
+
+.save-button:hover {
+  background: #1d4ed8;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 600px) {
+  .header {
+    padding: 15px 20px;
+  }
+
+  .edit-container {
+    margin-top: 40px;
+  }
+
+  .edit-card {
+    padding: 25px 20px;
+  }
+
+  .edit-card h1 {
+    font-size: 24px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions a,
+  .form-actions button {
+    width: 100%;
+  }
+}

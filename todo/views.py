@@ -1,6 +1,6 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 from .models import Task
-from .forms import AddTaskForm
+from .forms import TaskUpdateForm
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -21,3 +21,10 @@ class TaskCreate(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(TaskCreate, self).form_valid(form)
+
+
+class TaskUpdate(UpdateView):
+    model = Task
+    success_url = reverse_lazy("todo:task-list")
+    form_class = TaskUpdateForm
+    template_name = "update_task.html"
