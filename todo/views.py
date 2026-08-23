@@ -1,4 +1,11 @@
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.shortcuts import redirect
+from django.views.generic import (
+    ListView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
+from django.views import View
 from .models import Task
 from .forms import TaskUpdateForm
 from django.urls import reverse_lazy
@@ -38,3 +45,18 @@ class DeleteView(DeleteView):
 
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
+
+
+class TaskComplete(View):
+    model = Task
+    success_url = reverse_lazy("todo:task-list")
+
+    def get(self, request, *args, **kwargs):
+        object = Task.objects.get(id=kwargs.get("pk"))
+        if object.complete:
+            object.complete = False
+        else:
+            object.complete = True
+
+        object.save()
+        return redirect(self.success_url)

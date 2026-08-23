@@ -57,7 +57,12 @@
         {% for task in tasks %} {% if task.complete %}
         <div class="task completed">
           <div class="task-content">
-            <input type="radio" class="task-radio" checked />
+            <input
+              type="radio"
+              class="task-radio"
+              checked
+              onclick="window.location = '{% url "todo:complete-task" task.id %}'"
+            />
 
             <span class="task-title"> {{task.title}}</span>
           </div>
@@ -81,7 +86,7 @@
         {% else %}
         <div class="task">
           <div class="task-content">
-            <input type="radio" class="task-radio" />
+            <input type="radio" class="task-radio" onclick="window.location = '{% url "todo:complete-task" task.id %}'" />
 
             <span class="task-title"> {{task.title}}</span>
           </div>
