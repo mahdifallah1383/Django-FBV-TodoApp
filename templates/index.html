@@ -70,7 +70,12 @@
               >✎</a
             >
 
-            <button class="delete-button">🗑</button>
+            <a
+              class="delete-button"
+              type="button"
+              href="{% url 'todo:delete-task' task.id %}"
+              >🗑</a
+            >
           </div>
         </div>
         {% else %}
@@ -89,7 +94,12 @@
               >✎</a
             >
 
-            <button class="delete-button">🗑</button>
+            <a
+              class="delete-button"
+              type="button"
+              href="{% url 'todo:delete-task' task.id %}"
+              >🗑</a
+            >
           </div>
         </div>
         {% endif %} {% endfor %}

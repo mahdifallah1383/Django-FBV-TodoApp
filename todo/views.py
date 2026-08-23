@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Task
 from .forms import TaskUpdateForm
 from django.urls import reverse_lazy
@@ -28,3 +28,13 @@ class TaskUpdate(UpdateView):
     success_url = reverse_lazy("todo:task-list")
     form_class = TaskUpdateForm
     template_name = "update_task.html"
+
+
+class DeleteView(DeleteView):
+    model = Task
+    context_object_name = "task"
+    success_url = reverse_lazy("todo:task-list")
+    template_name = "task_confirm_delete.html"
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
