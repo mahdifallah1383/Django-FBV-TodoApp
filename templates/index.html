@@ -15,13 +15,13 @@
     <header class="header">
       <div class="user-profile">
         <img
-          src="https://i.pravatar.cc/100?img=12"
+          src="{{user.profile.profile_pics.url}}"
           alt="تصویر کاربر"
           class="user-avatar"
         />
 
         <div class="user-info">
-          <span class="user-name">مهدی احمدی</span>
+          <span class="user-name">{{user.username}}</span>
           <span class="user-role">کاربر</span>
         </div>
       </div>

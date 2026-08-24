@@ -6,5 +6,5 @@ from .models import Task
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ["title", "complete", "created_date"]
+    list_display = ["title", "author", "complete", "created_date"]
     date_hierarchy = "created_date"
