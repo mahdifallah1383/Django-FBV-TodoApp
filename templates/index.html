@@ -50,61 +50,148 @@
         <button type="submit" class="add-button">+</button>
       </form>
 
-      <!-- Tasks -->
-      <div class="tasks-container" id="tasksContainer">
-        <!-- Example Task -->
+      <!-- =========================
+      Remaining Tasks
+      ========================= -->
 
-        {% for task in tasks %} {% if task.complete %}
-        <div class="task completed">
-          <div class="task-content">
-            <input
-              type="radio"
-              class="task-radio"
-              checked
-              onclick="window.location = '{% url "todo:complete-task" task.id %}'"
-            />
+      <section class="task-section">
 
-            <span class="task-title"> {{task.title}}</span>
-          </div>
+        <h2 class="section-title">
+          کارهای باقی‌مانده
+        </h2>
 
-          <div class="task-actions">
-            <a
-              class="edit-button"
-              href="{% url 'todo:update-task' task.id%}"
-              >✎</a
-            >
+        <div class="tasks-container">
 
-            <a
-              class="delete-button"
-              href="{% url 'todo:delete-task' task.id %}"
-              >🗑</a
-            >
-          </div>
+          {% for task in tasks %}
+
+            {% if not task.complete %}
+
+              <div class="task">
+
+                <div class="task-content">
+
+                  <input
+                    type="radio"
+                    class="task-radio"
+                    onclick="window.location = '{% url "todo:complete-task" task.id %}'"
+                  />
+
+                  <span class="task-title">
+                    {{ task.title }}
+                  </span>
+
+                </div>
+
+
+                <div class="task-actions">
+
+                  <a
+                    class="edit-button"
+                    href="{% url 'todo:update-task' task.id %}"
+                  >
+                    ✎
+                  </a>
+
+                  <a
+                    class="delete-button"
+                    href="{% url 'todo:delete-task' task.id %}"
+                  >
+                    🗑
+                  </a>
+
+                </div>
+
+              </div>
+
+            {% endif %}
+
+          {% empty %}
+
+            <p class="empty-message">
+              کاری برای انجام دادن وجود ندارد.
+            </p>
+
+          {% endfor %}
+
         </div>
-        {% else %}
-        <div class="task">
-          <div class="task-content">
-            <input type="radio" class="task-radio" onclick="window.location = '{% url "todo:complete-task" task.id %}'" />
 
-            <span class="task-title"> {{task.title}}</span>
-          </div>
+      </section>
 
-          <div class="task-actions">
-            <a
-              class="edit-button"
-              href="{% url 'todo:update-task' task.id%}"
-              >✎</a
-            >
 
-            <a
-              class="delete-button"
-              href="{% url 'todo:delete-task' task.id %}"
-              >🗑</a
-            >
-          </div>
+      <!-- =========================
+          Separator
+      ========================= -->
+
+      <div class="task-separator"></div>
+
+
+      <!-- =========================
+          Completed Tasks
+      ========================= -->
+
+      <section class="task-section">
+
+        <h2 class="section-title">
+          کارهای انجام‌شده
+        </h2>
+
+        <div class="tasks-container">
+
+          {% for task in tasks %}
+
+            {% if task.complete %}
+
+              <div class="task completed">
+
+                <div class="task-content">
+
+                  <input
+                    type="radio"
+                    class="task-radio"
+                    checked
+                    onclick='window.location = "{% url 'todo:complete-task' task.id %}"'
+                  />
+
+                  <span class="task-title">
+                    {{ task.title }}
+                  </span>
+
+                </div>
+
+
+                <div class="task-actions">
+
+                  <a
+                    class="edit-button"
+                    href="{% url 'todo:update-task' task.id %}"
+                  >
+                    ✎
+                  </a>
+
+                  <a
+                    class="delete-button"
+                    href="{% url 'todo:delete-task' task.id %}"
+                  >
+                    🗑
+                  </a>
+
+                </div>
+
+              </div>
+
+            {% endif %}
+
+          {% empty %}
+
+            <p class="empty-message">
+              هنوز کاری انجام نشده است.
+            </p>
+
+          {% endfor %}
+
         </div>
-        {% endif %} {% endfor %}
-      </div>
+
+      </section>
     </main>
   </body>
 </html>
