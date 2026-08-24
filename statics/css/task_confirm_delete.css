@@ -3,233 +3,272 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: Tahoma, Arial, sans-serif;
+
   background: #f5f7fb;
+
   color: #1f2937;
+
   min-height: 100vh;
 }
+
 /* =========================
    Header
 ========================= */
+
 .header {
   width: 100%;
+
   padding: 20px 40px;
+
   display: flex;
+
   justify-content: flex-start;
 }
+
 .user-profile {
   display: flex;
+
   align-items: center;
+
   gap: 12px;
+
   background: #ffffff;
+
   padding: 8px 14px 8px 8px;
+
   border-radius: 14px;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
+
 .user-avatar {
   width: 45px;
   height: 45px;
+
   border-radius: 50%;
+
   object-fit: cover;
 }
+
 .user-info {
   display: flex;
+
   flex-direction: column;
+
   gap: 3px;
 }
+
 .user-name {
   font-size: 14px;
+
   font-weight: bold;
 }
+
 .user-role {
   font-size: 11px;
+
   color: #8a8f98;
 }
+
 /* =========================
    Main
 ========================= */
-.edit-container {
+
+.delete-container {
   width: 100%;
-  max-width: 650px;
-  margin: 55px auto;
+
+  max-width: 500px;
+
+  margin: 90px auto;
+
   padding: 0 20px;
 }
+
 /* =========================
    Card
 ========================= */
-.edit-card {
+
+.delete-card {
   background: #ffffff;
-  padding: 35px;
+
+  padding: 40px 35px;
+
   border-radius: 18px;
+
+  text-align: center;
+
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
 }
-.edit-card h1 {
-  text-align: center;
-  font-size: 27px;
-  margin-bottom: 8px;
-}
-.subtitle {
-  text-align: center;
-  color: #8a8f98;
-  font-size: 13px;
-  margin-bottom: 35px;
-}
+
 /* =========================
-   Form
+   Icon
 ========================= */
-.form-group {
-  margin-bottom: 25px;
-}
-.form-group > label {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 9px;
-}
-/* =========================
-   Text Input
-========================= */
-.form-group input[type="text"] {
-  width: 100%;
-  height: 50px;
-  padding: 0 15px;
-  border: 1px solid #e2e5ea;
-  border-radius: 10px;
-  outline: none;
-  background: #ffffff;
-  color: #1f2937;
-  font-family: inherit;
-  font-size: 14px;
-  direction: rtl;
-  transition: 0.2s;
-}
-.form-group input[type="text"]:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-/* =========================
-   Textarea
-========================= */
-.form-group textarea {
-  display: block;
-  width: 100%;
-  min-height: 120px;
-  resize: vertical;
-  padding: 13px 15px;
-  border: 1px solid #e2e5ea;
-  border-radius: 10px;
-  outline: none;
-  background: #ffffff;
-  color: #1f2937;
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 1.8;
-  direction: rtl;
-  text-align: right;
-  transition: 0.2s;
-}
-.form-group textarea:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-/* =========================
-   Status
-========================= */
-.status-container {
+
+.delete-icon {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 20px;
+
   display: flex;
+
   align-items: center;
-  gap: 10px;
-  padding: 14px 15px;
-  background: #f8fafc;
-  border-radius: 10px;
-  border: 1px solid #eef1f5;
+  justify-content: center;
+
+  background: #fef2f2;
+
+  color: #dc2626;
+
+  border-radius: 50%;
+
+  font-size: 28px;
 }
-.status-container input[type="checkbox"] {
-  width: 19px;
-  height: 19px;
-  margin: 0;
-  cursor: pointer;
-  accent-color: #2563eb;
+
+/* =========================
+   Title
+========================= */
+
+.delete-card h1 {
+  font-size: 26px;
+
+  margin-bottom: 12px;
 }
-.status-container label {
-  margin: 0;
+
+/* =========================
+   Message
+========================= */
+
+.delete-message {
+  color: #6b7280;
+
   font-size: 14px;
-  font-weight: normal;
-  cursor: pointer;
+
+  line-height: 1.8;
+
+  margin-bottom: 15px;
 }
+
+/* =========================
+   Task Name
+========================= */
+
+.task-name {
+  background: #f8fafc;
+
+  border: 1px solid #eef1f5;
+
+  border-radius: 10px;
+
+  padding: 13px 15px;
+
+  margin-bottom: 30px;
+
+  color: #374151;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  word-break: break-word;
+}
+
 /* =========================
    Buttons
 ========================= */
+
 .form-actions {
   display: flex;
-  align-items: center;
+
   gap: 10px;
-  margin-top: 35px;
+
+  width: 100%;
 }
-/* هر دو عنصر دقیقاً مثل Button رفتار کنند */
+
 .form-actions a,
 .form-actions button {
   height: 48px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: inherit;
-  font-size: 14px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.2s;
-  box-sizing: border-box;
-}
-/* Cancel */
-.cancel-button {
+
   flex: 1;
-  background: #f1f5f9;
-  color: #475569;
+
   border: none;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
 }
+
+/* Cancel */
+
+.cancel-button {
+  background: #f1f5f9;
+
+  color: #475569;
+}
+
 .cancel-button:hover {
   background: #e2e8f0;
 }
-/* Save */
-.save-button {
-  flex: 2;
-  background: #2563eb;
+
+/* Delete */
+
+.delete-button {
+  background: #dc2626;
+
   color: #ffffff;
-  border: none;
 }
-.save-button:hover {
-  background: #1d4ed8;
+
+.delete-button:hover {
+  background: #b91c1c;
+
   transform: translateY(-1px);
 }
+
 /* =========================
    Mobile
 ========================= */
+
 @media (max-width: 600px) {
   .header {
     padding: 15px 20px;
   }
-  .edit-container {
-    margin-top: 35px;
+
+  .delete-container {
+    margin-top: 50px;
+
     padding: 0 15px;
   }
-  .edit-card {
-    padding: 25px 20px;
-    border-radius: 15px;
+
+  .delete-card {
+    padding: 30px 20px;
   }
-  .edit-card h1 {
-    font-size: 24px;
+
+  .delete-card h1 {
+    font-size: 23px;
   }
-  .subtitle {
-    margin-bottom: 28px;
-  }
+
   .form-actions {
     flex-direction: column-reverse;
   }
+
   .form-actions a,
   .form-actions button {
     width: 100%;
-    flex: none;
   }
 }

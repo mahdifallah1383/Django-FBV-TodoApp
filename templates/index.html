@@ -69,7 +69,6 @@
 
           <div class="task-actions">
             <a
-              type="button"
               class="edit-button"
               href="{% url 'todo:update-task' task.id%}"
               >✎</a
@@ -77,7 +76,6 @@
 
             <a
               class="delete-button"
-              type="button"
               href="{% url 'todo:delete-task' task.id %}"
               >🗑</a
             >
@@ -93,7 +91,6 @@
 
           <div class="task-actions">
             <a
-              type="button"
               class="edit-button"
               href="{% url 'todo:update-task' task.id%}"
               >✎</a
@@ -101,7 +98,6 @@
 
             <a
               class="delete-button"
-              type="button"
               href="{% url 'todo:delete-task' task.id %}"
               >🗑</a
             >
@@ -110,9 +106,5 @@
         {% endif %} {% endfor %}
       </div>
     </main>
-
-    {% comment %}
-    <script src="{% static 'js/main.js' %}"></script>
-    {% endcomment %}
   </body>
 </html>

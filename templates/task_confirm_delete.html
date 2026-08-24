@@ -1,16 +1,62 @@
-<form
-  method="post"
-  style="
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  "
->
-  {% csrf_token %}
+{% load static %}
 
-  <p>Are you sure you want to delete "{{ object }}"?</p>
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
 
-  <input type="submit" value="Confirm" />
-  <a type="button" href="{% url 'todo:task-list' %}"> cancel </a>
-</form>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>حذف کار</title>
+
+    <link rel="stylesheet" href="{% static 'css/task_confirm_delete.css' %}" />
+  </head>
+
+  <body>
+    <!-- Header -->
+
+    <header class="header">
+      <div class="user-profile">
+        <img
+          src="https://i.pravatar.cc/100?img=12"
+          alt="تصویر کاربر"
+          class="user-avatar"
+        />
+
+        <div class="user-info">
+          <span class="user-name"> مهدی احمدی </span>
+
+          <span class="user-role"> کاربر </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+
+    <main class="delete-container">
+      <div class="delete-card">
+        <div class="delete-icon">🗑</div>
+
+        <h1>حذف کار</h1>
+
+        <p class="delete-message">
+          آیا مطمئن هستید که می‌خواهید این کار را حذف کنید؟
+        </p>
+
+        <div class="task-name">"{{ object }}"</div>
+
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="form-actions">
+            <a href="{% url 'todo:task-list' %}" class="cancel-button">
+              انصراف
+            </a>
+
+            <button type="submit" class="delete-button">حذف کار</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
