@@ -1,0 +1,92 @@
+{% load static %}
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ورود به حساب کاربری</title>
+
+    <link rel="stylesheet" href="{% static 'css/registration/login.css' %}" />
+  </head>
+
+  <body>
+    <main class="login-container">
+      <div class="login-card">
+        <!-- Logo / Title -->
+
+        <div class="login-header">
+          <div class="logo">✓</div>
+
+          <h1>خوش آمدید</h1>
+
+          <p>برای ادامه وارد حساب کاربری خود شوید</p>
+        </div>
+
+        <!-- Login Form -->
+
+        <form method="post" class="login-form">
+          {% csrf_token %}
+
+          <!-- Username -->
+
+          <div class="form-group">
+            <label for="username"> نام کاربری </label>
+
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="نام کاربری خود را وارد کنید"
+              autocomplete="username"
+              required
+            />
+          </div>
+
+          <!-- Password -->
+
+          <div class="form-group">
+            <label for="password"> رمز عبور </label>
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="رمز عبور خود را وارد کنید"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <!-- Remember / Forgot -->
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" name="remember" />
+
+              <span> مرا به خاطر بسپار </span>
+            </label>
+
+            <a href="#" class="forgot-password">
+              رمز عبور را فراموش کرده‌اید؟
+            </a>
+          </div>
+
+          <!-- Submit -->
+
+          <button type="submit" class="login-button">ورود</button>
+        </form>
+
+        <!-- Register -->
+
+        <div class="register-section">
+          <span> حساب کاربری ندارید؟ </span>
+
+          <a href="#"> ثبت‌نام کنید </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -12,6 +12,7 @@ class CustomUserAdmin(UserAdmin):
         "email",
         "is_staff",
         "is_active",
+        "is_superuser",
     )
     list_filter = (
         "email",
@@ -26,7 +27,15 @@ class CustomUserAdmin(UserAdmin):
         ),
         (
             "Permissions",
-            {"fields": ("is_staff", "is_active", "groups", "user_permissions")},
+            {
+                "fields": (
+                    "is_staff",
+                    "is_active",
+                    "is_superuser",
+                    "groups",
+                    "user_permissions",
+                )
+            },
         ),
     )
     add_fieldsets = (
@@ -40,6 +49,7 @@ class CustomUserAdmin(UserAdmin):
                     "password2",
                     "is_staff",
                     "is_active",
+                    "is_superuser",
                     "groups",
                     "user_permissions",
                 ),
